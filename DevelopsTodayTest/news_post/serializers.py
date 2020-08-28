@@ -1,0 +1,21 @@
+"""
+    NewsPost serializer for API
+"""
+from rest_framework import serializers
+from .models import NewsPost
+
+
+class NewsPostSerializer(serializers.HyperlinkedModelSerializer):
+    """
+    NewsPost serializer class for API
+    """
+    class Meta:
+        model = NewsPost
+        fields = [
+            'id',
+            'title',
+            'link',
+            'creation_date',
+            'upvote_amount',
+            'author_name'
+        ]
