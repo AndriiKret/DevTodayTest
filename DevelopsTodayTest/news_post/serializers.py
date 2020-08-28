@@ -5,7 +5,7 @@ from rest_framework import serializers
 from .models import NewsPost
 
 
-class NewsPostSerializer(serializers.HyperlinkedModelSerializer):
+class NewsPostSerializer(serializers.ModelSerializer):
     """
     NewsPost serializer class for API
     """
