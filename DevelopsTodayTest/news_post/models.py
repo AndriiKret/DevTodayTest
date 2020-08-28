@@ -1,4 +1,5 @@
 from django.db import models, IntegrityError
+from django.utils import timezone
 
 
 class NewsPost(models.Model):
@@ -9,13 +10,13 @@ class NewsPost(models.Model):
     author_name = models.CharField(max_length=50)
 
     @staticmethod
-    def create(title, link, creation_date, upvote_amount, author_name):
+    def create(title, link, author_name):
         instance = NewsPost(
             title=title,
             link=link,
-            creation_date=creation_date,
-            upvote_amount=upvote_amount,
-            author_name=author_name
+            upvote_amount=0,
+            author_name=author_name,
+            creation_date=timezone.now()
         )
         try:
             instance.save()
