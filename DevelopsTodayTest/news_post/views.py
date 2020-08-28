@@ -10,10 +10,11 @@ class NewsPostViewSet(viewsets.ModelViewSet):
     """
     NewsPost view set
     """
+
     queryset = NewsPost.objects.all()
     serializer_class = NewsPostSerializer
 
-    @action(detail=True, methods=['post'])
+    @action(detail=True, methods=["post"])
     def upvote(self, request, pk):
         instance = NewsPost.get_by_id(pk)
         instance.upvote_amount += 1
@@ -21,15 +22,10 @@ class NewsPostViewSet(viewsets.ModelViewSet):
         return Response(status=status.HTTP_200_OK)
 
 
-news_post_list_view = NewsPostViewSet.as_view({
-    'get': 'list',
-    'post': 'create'
-})
-news_post_detailed_view = NewsPostViewSet.as_view({
-    'get': 'retrieve',
-    'put': 'update',
-    'delete': 'destroy'
-})
-news_post_upvote = NewsPostViewSet.as_view({
-    'post': 'upvote'
-})
+news_post_list_view = NewsPostViewSet.as_view(
+    {"get": "list", "post": "create"}
+)
+news_post_detailed_view = NewsPostViewSet.as_view(
+    {"get": "retrieve", "put": "update", "delete": "destroy"}
+)
+news_post_upvote = NewsPostViewSet.as_view({"post": "upvote"})

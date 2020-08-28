@@ -9,13 +9,14 @@ class NewsPostSerializer(serializers.ModelSerializer):
     """
     NewsPost serializer class for API
     """
+
     class Meta:
         model = NewsPost
         fields = [
-            'id',
-            'title',
-            'link',
-            'creation_date',
-            'upvote_amount',
-            'author_name'
+            "id",
+            "title",
+            "link",
+            "creation_date",
+            "upvote_amount",
+            "author_name",
         ]

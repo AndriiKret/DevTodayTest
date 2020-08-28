@@ -16,7 +16,7 @@ class NewsPost(models.Model):
             link=link,
             upvote_amount=0,
             author_name=author_name,
-            creation_date=timezone.now()
+            creation_date=timezone.now(),
         )
         try:
             instance.save()
@@ -32,33 +32,36 @@ class NewsPost(models.Model):
             return None
 
     @staticmethod
-    def filter(post_id=None,
-               title=None,
-               link=None,
-               creation_date=None,
-               upvote_amount=None,
-               author_name=None
-               ):
+    def filter(
+        post_id=None,
+        title=None,
+        link=None,
+        creation_date=None,
+        upvote_amount=None,
+        author_name=None,
+    ):
         filter_data = {}
         if id is not None:
-            filter_data['id'] = post_id
+            filter_data["id"] = post_id
         if title is not None:
-            filter_data['title'] = title
+            filter_data["title"] = title
         if link is not None:
-            filter_data['link'] = link
+            filter_data["link"] = link
         if creation_date is not None:
-            filter_data['creation_date'] = creation_date
+            filter_data["creation_date"] = creation_date
         if upvote_amount is not None:
-            filter_data['upvote_amount'] = upvote_amount
+            filter_data["upvote_amount"] = upvote_amount
         if author_name is not None:
-            filter_data['author_name'] = author_name
+            filter_data["author_name"] = author_name
 
         result = NewsPost.objects.filter(**filter_data)
         return list(result)
 
     def __repr__(self):
-        return f'<NewsPost title:{self.title},' \
-               f' link:{self.link},' \
-               f' creation_date:{self.creation_date},' \
-               f' upvote_amount:{self.upvote_amount},' \
-               f'author_name:{self.author_name}>'
+        return (
+            f"<NewsPost title:{self.title},"
+            f" link:{self.link},"
+            f" creation_date:{self.creation_date},"
+            f" upvote_amount:{self.upvote_amount},"
+            f"author_name:{self.author_name}>"
+        )
