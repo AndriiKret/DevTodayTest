@@ -21,6 +21,30 @@ services:
             - "8000:8000"
         depends_on:
             - db
-
+    rabbitmq:
+        hostname: rabbitmq
+        image: "rabbitmq"
+        container_name: rabbitmq
+        volumes:
+            - ./rabbitmq:/var/lib/rabbitmq/data
+        ports:
+            - 5672:5672
+    celery:
+        build: DevelopsTodayTest
+        container_name: celery_worker
+        command: bash -c "celery -A DevelopsTodayTest worker -l info"
+        volumes:
+            - ./DevelopsTodayTest:/api
+        depends_on:
+            - db
+            - rabbitmq
+    celery-beat:
+        build: DevelopsTodayTest
+        container_name: celery_beat
+        command: bash -c "celery -A DevelopsTodayTest beat -l info"
+        volumes:
+            - ./DevelopsTodayTest:/api
+        depends_on:
+            - celery
 volumes:
   db-data:

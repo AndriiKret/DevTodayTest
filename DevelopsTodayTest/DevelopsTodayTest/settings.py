@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     "comment",
     "rest_framework",
     "django_filters",
+    "utils",
 ]
 
 MIDDLEWARE = [
@@ -116,8 +118,20 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 REST_FRAMEWORK = {
-    "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"]
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend"
+    ]
 }
+
+# Celery settings
+
+CELERY_BROKER_URL = "amqp://guest:guest@rabbitmq:5672"
+CELERY_IGNORE_RESULT = True
+CELERY_ENABLE_UTC = False
+CELERY_TIMEZONE = "Europe/Kiev"
+
+DOMAIN = "localhost:8000"
+
 try:
     from .local_settings import *
 except ImportError:
