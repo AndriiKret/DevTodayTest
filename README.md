@@ -50,4 +50,5 @@ $ systemctl status rabbitmq-server
              'PASSWORD': '<db_password>',
              'NAME': '<db_name>',
           }
-   }```
+   }
+   ```
