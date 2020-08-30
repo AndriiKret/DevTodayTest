@@ -58,3 +58,6 @@ $ systemctl status rabbitmq-server
 ### Running
 Go to the folder with manage.py file and run django server:
 ```python manage.py runserver```
+
+### Addition commands
+#### Docker
