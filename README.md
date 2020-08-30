@@ -52,3 +52,9 @@ $ systemctl status rabbitmq-server
           }
    }
    ```
+   5. Go to the folder with manage.py file and run migrate: 
+   ```python manage.py migrate```
+   
+### Running
+Go to the folder with manage.py file and run django server:
+```python manage.py runserver```
