@@ -2,7 +2,7 @@
     NewsPost serializer for API
 """
 from rest_framework import serializers
-from .models import NewsPost
+from news_post.models import NewsPost
 
 
 class NewsPostSerializer(serializers.ModelSerializer):

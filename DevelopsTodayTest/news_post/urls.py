@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import (
+from news_post.views import (
     news_post_list_view,
     news_post_detailed_view,
     news_post_upvote,
