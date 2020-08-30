@@ -19,3 +19,21 @@ postgres=# CREATE USER <db_user> PASSWORD '<db_password>'";
 postgres=# CREATE DATABASE <db_name> OWNER <db_user>;
 postgres=# ALTER USER <db_user> CREATEDB;
 ```
+RabbitMQ
+```
+# install
+$ sudo apt-get install -y erlang
+$ sudo apt-get install rabbitmq-server
+
+# enable and start
+$ systemctl enable rabbitmq-server
+$ systemctl start rabbitmq-server
+
+# check status
+$ systemctl status rabbitmq-server
+```
+
+### Project configuration
+
+   1. Clone this repository.
+   2. Activate virtual environment.
