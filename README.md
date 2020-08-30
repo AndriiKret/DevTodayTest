@@ -7,6 +7,9 @@ DevTodayTest is a Django REST framework API used to create news board with comme
 * postgresql - 12
 * celery - 4.4.7
 
+### Postman Collection
+```https://www.getpostman.com/collections/d4784683ce80710084e3```
+
 ### Installation
 PostgreSQL
 ```
