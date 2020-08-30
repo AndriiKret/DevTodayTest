@@ -63,8 +63,8 @@ Go to the folder with manage.py file and run django server:
 #### Docker
 * To build docker-container
 ``` docker-compose build```
-* To run app:
-   1. In local_settings.py DATABASE change 'HOST' from 'localhost' to 'db' 
+* To strat up container:
+   * In local_settings.py DATABASE change 'HOST' from 'localhost' to 'db' 
 ```
    # Database settings
       DATABASES = {
@@ -77,5 +77,7 @@ Go to the folder with manage.py file and run django server:
           }
    }
    ```
-   2. Run command:
+   * Run command:
 ``` docker-compose up```
+* To close down your Docker container 
+```docker-compose down```
