@@ -37,3 +37,17 @@ $ systemctl status rabbitmq-server
 
    1. Clone this repository.
    2. Activate virtual environment.
+   3. Go to the folder ```requirements.txt``` and run command to install required dependencies: 
+   ```pip install -r requirements.txt```
+   4.Create localsettings.py in DevelopsTodayTest/DevelopsTodayTest/ with following settings: 
+   ```
+   # Database settings
+      DATABASES = {
+          'default': {
+             'ENGINE': 'django.db.backends.postgresql_psycopg2',
+             'HOST': 'localhost',
+             'USER': '<db_user>',
+             'PASSWORD': '<db_password>',
+             'NAME': '<db_name>',
+          }
+   }```
